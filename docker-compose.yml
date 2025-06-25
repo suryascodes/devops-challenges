@@ -1,0 +1,38 @@
+version: '3.8'
+
+services:
+  nginx:
+    build: ./nginx
+    ports:
+      - "8080:80"
+    depends_on:
+      - service_1
+      - service_2
+    networks:
+      - appnet
+
+  service_1:
+    build: ./service_1
+    container_name: service_1
+    networks:
+      - appnet
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8081/health"]
+      interval: 10s
+      timeout: 3s
+      retries: 3
+
+  service_2:
+    build: ./service_2
+    container_name: service_2
+    networks:
+      - appnet
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8082/health"]
+      interval: 10s
+      timeout: 3s
+      retries: 3
+
+networks:
+  appnet:
+    driver: bridge
