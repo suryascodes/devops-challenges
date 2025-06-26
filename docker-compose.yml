@@ -17,7 +17,7 @@ services:
     networks:
       - appnet
     healthcheck:
-      test: ["CMD", "curl", "-f", "http://localhost:8081/health"]
+      test: ["CMD", "curl", "-f", "http://localhost:8001/health"]
       interval: 10s
       timeout: 3s
       retries: 3
@@ -28,7 +28,7 @@ services:
     networks:
       - appnet
     healthcheck:
-      test: ["CMD", "curl", "-f", "http://localhost:8082/health"]
+      test: ["CMD", "curl", "-f", "http://localhost:8002/health"]
       interval: 10s
       timeout: 3s
       retries: 3
