@@ -17,8 +17,8 @@
 
 ## 🚀 How to Run
 
-1. Place your Golang service code in `service_1/`. It must listen on port **8081** and expose `/health` route.
-2. Place your Python service (e.g., Flask) in `service_2/`. It must listen on port **8082** and expose `/health` route.
+1. Place your Golang service code in `service_1/`. It must listen on port **8001** and expose `/health` route.
+2. Place your Python service (e.g., Flask) in `service_2/`. It must listen on port **8002** and expose `/health` route.
 
 ### ✅ Build and Run
 
